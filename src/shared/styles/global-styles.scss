@@ -1,0 +1,23 @@
+$cardo: "Cardo", serif;
+$font-size--small: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.471), 1.2rem);
+$font-size--medium: clamp(0.9rem, 0.9rem + ((1vw - 0.2rem) * 1.176), 1.4rem);
+$font-size--large: clamp(1.301rem, 1.301rem + ((1vw - 0.2rem) * 1.88), 2.1rem);
+$font-size--x-large: clamp(1.512rem, 1.512rem + ((1vw - 0.2rem) * 2.372), 2.52rem);
+$font-size--x-small: clamp(0.8rem, 0.8rem + ((1vw - 0.2rem) * 0.235), 0.9rem);
+$font-size--xx-large: clamp(1.755rem, 1.755rem + ((1vw - 0.2rem) * 2.986), 3.024rem);
+$font-size--huge: clamp(2.1rem, 2.1rem + ((1vw - 0.2rem) * 12.765), 7.525rem);
+
+.flex-align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-justify-content-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-direction-row {
+  display: flex;
+  flex-direction: row;
+}
