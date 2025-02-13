@@ -12,6 +12,11 @@ $font-size--huge: clamp(2.1rem, 2.1rem + ((1vw - 0.2rem) * 12.765), 7.525rem);
   align-items: center;
 }
 
+.flex-justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
 .flex-justify-content-between {
   display: flex;
   justify-content: space-between;
