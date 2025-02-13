@@ -1,0 +1,39 @@
+@import '../../../shared/styles/global-styles.scss';
+
+.ff-container {
+  box-sizing: border-box;
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.f-input {
+  width: 100%;
+  .label {
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: $font-size--medium;
+    p {
+      display: inline;
+      color: red;
+    }
+  }
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 7px;
+    padding: 11px 15px
+  }
+}
+
+.button {
+  float: right;
+  border: none;
+  background-color: inherit;
+  margin-top: 3vh;
+  font-size: $font-size--medium;
+  font-family: $cardo;
+  font-weight: 400;
+  cursor: pointer;
+}

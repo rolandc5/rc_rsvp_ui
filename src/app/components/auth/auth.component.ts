@@ -1,4 +1,4 @@
-import { Component, inject, effect } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PrimaryService } from '../../services/primary.service';
@@ -10,14 +10,16 @@ import { PrimaryService } from '../../services/primary.service';
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss'
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
   primaryService = inject(PrimaryService);
   password: string | null = '';
-  auth: boolean = false;
-
 
   constructor(private route: ActivatedRoute) {
-    this.password = this.route.snapshot.paramMap.get('password');
+    this.password = this.route.snapshot.queryParamMap.get('password');
+  }
+
+  ngOnInit() {    
+    this.primaryService.login(this.password)
   }
 
   onSubmitPassword() {

@@ -6,6 +6,7 @@ $font-size--x-large: clamp(1.512rem, 1.512rem + ((1vw - 0.2rem) * 2.372), 2.52re
 $font-size--x-small: clamp(0.8rem, 0.8rem + ((1vw - 0.2rem) * 0.235), 0.9rem);
 $font-size--xx-large: clamp(1.755rem, 1.755rem + ((1vw - 0.2rem) * 2.986), 3.024rem);
 $font-size--huge: clamp(2.1rem, 2.1rem + ((1vw - 0.2rem) * 12.765), 7.525rem);
+$input-border-radius: 7px;
 
 .flex-align-items-center {
   display: flex;
@@ -25,4 +26,9 @@ $font-size--huge: clamp(2.1rem, 2.1rem + ((1vw - 0.2rem) * 12.765), 7.525rem);
 .flex-direction-row {
   display: flex;
   flex-direction: row;
+}
+
+.flex-direction-column {
+  display: flex;
+  flex-direction: column;
 }

@@ -10,9 +10,9 @@
 .title {
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: 2vh;
+    padding-top: 1.4vh;
     padding-right: 0;
-    padding-bottom: 2vh;
+    padding-bottom: 3vh;
     padding-left: 0;
   h2 {
     padding: 0;
@@ -22,26 +22,20 @@
   }
 }
 
-.rsvp-root {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-top: 2vh;
-  padding-right: 0;
-  padding-bottom: 2vh;
-  padding-left: 0;
-
-  p {
-  }
+.form-container {
+  padding-right: 4vw;
+  padding-left: 4vw;
 }
 
 .rsvp-form {
+  max-width: 620px;
+}
+
+
+.description {
+  margin-bottom: 20px;
   p {
     text-align: center;
-    width: 620px;
     line-height: 1.5;
     font-size: $font-size--medium;
   }
