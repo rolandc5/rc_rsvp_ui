@@ -1,10 +1,12 @@
 @import '../../../shared/styles/global-styles.scss';
+@import '../../../shared/styles/cssanimation.css';
 
 .ff-container {
   box-sizing: border-box;
   display: flex;
   gap: 15px;
   width: 100%;
+  margin-bottom: 3vh;
 }
 
 .f-input {
@@ -23,17 +25,98 @@
     box-sizing: border-box;
     width: 100%;
     border-radius: 7px;
+    border: 1px;
+    outline: none;
     padding: 11px 15px
   }
 }
 
+.page-1 {
+  width: 100%;
+  p {
+    text-wrap: nowrap;
+    font-size: $font-size--large;
+    margin-right: 10px;
+  }
+  input {
+    box-sizing: border-box;
+    width: 65%;
+    padding-bottom: 1px;
+    border: none;
+    border-bottom: solid 1px #ab5429;
+    color: #ab5429;
+    outline: none;
+    background-color: inherit;
+    font-size: $font-size--large;
+    font-family: $cardo;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+.info {
+  font-size: $font-size--medium;
+  width: 100%;
+  text-align: center;
+}
+// #ab5429
 .button {
-  float: right;
   border: none;
   background-color: inherit;
   margin-top: 3vh;
-  font-size: $font-size--medium;
+  font-size: $font-size--large;
   font-family: $cardo;
   font-weight: 400;
   cursor: pointer;
+  color: #ab5429;
+}
+
+.cb-container {
+  width: 100%;
+  .cb-width {
+    width: 65%;
+    .checkbox {
+      border: none;
+    }
+  }
+}
+
+
+.checkbox-label {
+  margin-left: 1vw;
+  font-size: $font-size--medium;
+}
+
+.page-2 {
+  width: 100%;
+  .info {
+    font-size: $font-size--medium;
+  }
+}
+
+.page-3 {
+  width: 100%;
+  .allergy-info {
+    width: 100%;
+    font-size: $font-size--medium;
+  }
+  textarea {
+    box-sizing: border-box;
+    max-width: 620px;
+    width: 100%;
+    resize: none;
+    border-radius: 7px;
+    border: 1px;
+    outline: none;
+    padding: 11px 15px;
+    font-size: $font-size--medium;
+    font-family: $cardo;
+    font-weight: 400;
+  }
+}
+
+.page-4 {
+  .info {
+    font-size: $font-size--medium;
+  }
 }

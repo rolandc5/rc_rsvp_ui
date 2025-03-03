@@ -23,6 +23,11 @@ $input-border-radius: 7px;
   justify-content: space-between;
 }
 
+.flex-justify-content-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .flex-direction-row {
   display: flex;
   flex-direction: row;

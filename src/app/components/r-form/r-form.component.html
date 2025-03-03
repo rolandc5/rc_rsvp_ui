@@ -1,23 +1,74 @@
-<form class="">
-  <div class="ff-container flex-direction-row">
-    <div class="f-input">
-      <div class="label">
-        <label>
-          first name <p>*</p>
-        </label>
-      </div>
-      <input>
-    </div>
-    <div class="f-input">
-      <div class="label">
-        <label>
-          last name <p>*</p>
-        </label>
-      </div>
-      <div>
-        <input>
-      </div>
-    </div>
-  </div>
-  <button class="button">Next</button>
+@if (page === pageEnum[1]) {
+<form class="cssanimation leFadeInRight sequence" (ngSubmit)="searchInviteInfo()">
+	<div class="flex-direction-row">
+		<div class="page-1">
+			<div class="flex-direction-column flex-align-items-center">
+				<!-- <p >Hello, <span style="color: #ab5429">I am</span></p> <input [(ngModel)]="name"
+					[ngModelOptions]="{standalone: true}"> -->
+				<p>Hello, I am</p>
+				 <input [(ngModel)]="name"
+					[ngModelOptions]="{standalone: true}">
+			</div>
+		</div>
+	</div>
+	<button type="submit" class="button">Next</button>
 </form>
+} @else if (page === pageEnum[2]) {
+<form class="cssanimation leFadeInRight sequence" (ngSubmit)="selectRsvp()">
+	<div class="page-2 flex-direction-row flex-justify-content-center">
+		<p class="info">Who are we <br><span style="color: #ab5429">expecting to attend</span><br> the big day?</p>
+		<div class="cb-container flex-justify-content-center flex-direction-column">
+			@for (invitee of rsvpLists.group; track invitee[0]; let i = $index) {
+			<div class="flex-justify-content-center">
+				<div class="cb-width flex-justify-content-start">
+					<input class="checkbox" type="checkbox" id="{{i}}">
+					<label class="checkbox-label" for="{{i}}">{{invitee[1]}} {{invitee[2]}}</label>
+				</div>
+			</div>
+			}
+		</div>
+	</div>
+	<button type="submit" class="button">Next</button>
+</form>
+} @else if (page === pageEnum[3]) {
+<form class="cssanimation leFadeInRight sequence" (ngSubmit)="onSubmit()">
+	<div class="page-3">
+		<div>
+			<p class="allergy-info">Are there any <span style="color: #ab5429">food allergies</span> or <span
+					style="color: #ab5429">restrictions</span> <br />we should be aware of?</p>
+		</div>
+		<textarea></textarea>
+	</div>
+	<button type="submit" class="button" (click)="allergySubmit()">Next</button>
+</form>
+} @else if (page === pageEnum[4]) {
+<form class="cssanimation leFadeInRight sequence" (ngSubmit)="onSubmit()">
+	<div class="page-4 flex-direction-row flex-justify-content-center">
+		<div class="cb-container flex-justify-content-center flex-direction-column">
+			<div class="flex-justify-content-center">
+				<div class="cb-width flex-justify-content-start">
+					<input class="checkbox" type="checkbox" id="yes">
+					<label class="checkbox-label" for="yes">Interested</label>
+				</div>
+			</div>
+			<div class="flex-justify-content-center">
+				<div class="cb-width flex-justify-content-start">
+					<input class="checkbox" type="checkbox" id="no">
+					<label class="checkbox-label" for="no">Not-interested</label>
+				</div>
+			</div>
+		</div>
+		<p class="info">If you are interested <br>in bringing a +1, please <br>let us know.</p>
+	</div>
+	<button type="submit" class="button" (click)="plusOneSubmit()">Next</button>
+</form>
+} @else if (page === pageEnum[5]) {
+<form class="cssanimation leFadeInRight sequence" (ngSubmit)="onSubmit()">
+	<div class="page-3">
+		<p class="allergy-info">I would love to hear this <span style="color: #ab5429">song</span> play <br /> on the dance
+			floor:</p>
+		<textarea></textarea>
+	</div>
+	<button type="submit" class="button">Finish</button>
+</form>
+}
