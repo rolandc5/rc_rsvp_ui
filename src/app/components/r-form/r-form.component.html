@@ -3,11 +3,12 @@
 	<div class="flex-direction-row">
 		<div class="page-1">
 			<div class="flex-direction-column flex-align-items-center">
-				<!-- <p >Hello, <span style="color: #ab5429">I am</span></p> <input [(ngModel)]="name"
-					[ngModelOptions]="{standalone: true}"> -->
-				<p>Hello, I am</p>
-				 <input [(ngModel)]="name"
-					[ngModelOptions]="{standalone: true}">
+				<!-- <p>Hello, <span style="color: #ab5429">I am</span></p>
+				<input [(ngModel)]="name" [ngModelOptions]="{standalone: true}"> -->
+				<p class="info">
+					Please enter the first and last name of one member of your party below. <br> If you're responding for you and a guest (or your family) you'll be able to RSVP for your entire group on the next page.
+				</p>
+				<input [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="First and Last Name">
 			</div>
 		</div>
 	</div>
