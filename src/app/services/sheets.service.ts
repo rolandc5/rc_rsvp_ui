@@ -7,9 +7,8 @@ import { Injectable } from '@angular/core';
 export class SheetsService {
 
   constructor(private http: HttpClient) { }
-
   
   getInviteInfo(name: string) {
-    return this.http.get(`http://localhost:8080/?name=${name}`);
+    return this.http.get(`https://api.rccanuto.com/?name=${name}`);
   }
 }
