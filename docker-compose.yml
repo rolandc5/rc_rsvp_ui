@@ -1,0 +1,9 @@
+services:
+   rsvp_ui:
+      build: .
+      container_name: rsvp_ui
+      ports:
+        - 4200:4200
+      command: npm start
+      volumes:
+        - .:/app
