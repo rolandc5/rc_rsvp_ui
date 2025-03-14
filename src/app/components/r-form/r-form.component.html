@@ -1,5 +1,5 @@
 @if (page === pageEnum[1]) {
-<form class="cssanimation leFadeInRight sequence" (ngSubmit)="searchInviteInfo()">
+<form (ngSubmit)="searchInviteInfo()" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)">
 	<div class="flex-direction-row">
 		<div class="page-1">
 			<div class="flex-direction-column flex-align-items-center">
@@ -14,7 +14,7 @@
 	<button type="submit" class="button">Next</button>
 </form>
 } @else if (page === pageEnum[2]) {
-<form class="cssanimation leFadeInRight sequence" (ngSubmit)="selectRsvp()">
+<form (ngSubmit)="selectRsvp()" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)">
 	<div class="page-2 flex-direction-row flex-justify-content-center">
 		<p class="info">Who are we <span style="color: #ab5429">expecting to attend </span> <br> the big day?</p>
 		<div class="cb-container flex-justify-content-center flex-align-items-center flex-direction-column">
@@ -42,6 +42,12 @@
 								d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
 						</svg>
 						}
+						@else if (invitee[0] === '') {
+						<svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e3e3e3">
+							<path
+								d="M478-240q21 0 35.5-14.5T528-290q0-21-14.5-35.5T478-340q-21 0-35.5 14.5T428-290q0 21 14.5 35.5T478-240Zm-36-154h74q0-33 7.5-52t42.5-52q26-26 41-49.5t15-56.5q0-56-41-86t-97-30q-57 0-92.5 30T342-618l66 26q5-18 22.5-39t53.5-21q32 0 48 17.5t16 38.5q0 20-12 37.5T506-526q-44 39-54 59t-10 73Zm38 314q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+						</svg>
+						}
 					</label>
 				</div>
 			</div>
@@ -51,7 +57,7 @@
 	<button type="submit" class="button">Next</button>
 </form>
 } @else if (page === pageEnum[3]) {
-<form class="cssanimation leFadeInRight sequence" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)">
 	<div class="page-3">
 		<div>
 			<p class="allergy-info">Are there any <span style="color: #ab5429">food allergies</span> or <span
@@ -62,19 +68,31 @@
 	<button type="submit" class="button" (click)="allergySubmit()">Next</button>
 </form>
 } @else if (page === pageEnum[4]) {
-<form class="cssanimation leFadeInRight sequence" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)">
 	<div class="page-4 flex-direction-row flex-justify-content-center">
 		<div class="cb-container flex-justify-content-center flex-direction-column">
 			<div class="flex-justify-content-center">
-				<div class="cb-width flex-justify-content-start">
-					<input class="checkbox" type="checkbox" id="yes">
-					<label class="checkbox-label" for="yes">Interested</label>
+				<div class="cb-width flex-justify-content-start flex-align-items-center">
+					<input class="checkbox" type="radio" id="no">
+					<label class="checkbox-label flex-justify-content-between flex-align-items-center" for="no">
+						<span>Interested</span>
+						<svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#008000">
+							<path
+								d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+						</svg>
+					</label>
 				</div>
 			</div>
 			<div class="flex-justify-content-center">
-				<div class="cb-width">
-					<input class="checkbox" type="checkbox" id="no">
-					<label class="checkbox-label flex-justify-content-start" for="no">Not-interested</label>
+				<div class="cb-width flex-justify-content-start flex-align-items-center">
+					<input class="checkbox" type="radio" id="no">
+					<label class="checkbox-label flex-justify-content-between flex-align-items-center" for="no">
+						<span>Not-interested</span>
+						<svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#008000">
+							<path
+								d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+						</svg>
+					</label>
 				</div>
 			</div>
 		</div>
@@ -83,7 +101,7 @@
 	<button type="submit" class="button" (click)="plusOneSubmit()">Next</button>
 </form>
 } @else if (page === pageEnum[5]) {
-<form class="cssanimation leFadeInRight sequence" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)">
 	<div class="page-3">
 		<p class="allergy-info">I would love to hear this <span style="color: #ab5429">song</span> play <br /> on the dance
 			floor:</p>
