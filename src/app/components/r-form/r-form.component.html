@@ -3,10 +3,9 @@
 	<div class="flex-direction-row">
 		<div class="page-1">
 			<div class="flex-direction-column flex-align-items-center">
-				<!-- <p>Hello, <span style="color: #ab5429">I am</span></p>
-				<input [(ngModel)]="name" [ngModelOptions]="{standalone: true}"> -->
 				<p class="info">
-					Please enter the first and last name of one member of your party below. <br> If you're responding for you and a guest (or your family) you'll be able to RSVP for your entire group on the next page.
+					Please enter the first and last name of one member of your party below. <br> If you're responding for you and
+					a guest (or your family) you'll be able to RSVP for your entire group on the next page.
 				</p>
 				<input [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="First and Last Name">
 			</div>
@@ -17,13 +16,33 @@
 } @else if (page === pageEnum[2]) {
 <form class="cssanimation leFadeInRight sequence" (ngSubmit)="selectRsvp()">
 	<div class="page-2 flex-direction-row flex-justify-content-center">
-		<p class="info">Who are we <br><span style="color: #ab5429">expecting to attend</span><br> the big day?</p>
-		<div class="cb-container flex-justify-content-center flex-direction-column">
-			@for (invitee of rsvpLists.group; track invitee[0]; let i = $index) {
+		<p class="info">Who are we <span style="color: #ab5429">expecting to attend </span> <br> the big day?</p>
+		<div class="cb-container flex-justify-content-center flex-align-items-center flex-direction-column">
+			<!-- <div class="flex-justify-content-center">
+				<div class="cb-width flex-justify-content-start flex-align-items-center">
+					<input class="checkbox" type="checkbox" id="everyone">
+					<label class="checkbox-label" for="everyone">Everyone is going!</label>
+				</div>
+			</div> -->
+			@for (invitee of rsvpLists.group; track invitee[1]; let i = $index) {
 			<div class="flex-justify-content-center">
-				<div class="cb-width flex-justify-content-start">
-					<input class="checkbox" type="checkbox" id="{{i}}">
-					<label class="checkbox-label" for="{{i}}">{{invitee[1]}} {{invitee[2]}}</label>
+				<div class="cb-width flex-justify-content-start flex-align-items-center">
+					<input class="checkbox" type="checkbox" id="{{i}}" (click)="selectedInvitee($event, i)"
+						value="{{invitee[1]}}">
+					<label class="checkbox-label flex-justify-content-between flex-align-items-center"
+						for="{{i}}"><span>{{invitee[1]}} {{invitee[2]}}</span>
+						@if (invitee[0] === 'yes') {
+						<svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#008000">
+							<path
+								d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+						</svg>
+						} @else if (invitee[0] === 'no') {
+						<svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FF2C2C">
+							<path
+								d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+						</svg>
+						}
+					</label>
 				</div>
 			</div>
 			}
@@ -53,9 +72,9 @@
 				</div>
 			</div>
 			<div class="flex-justify-content-center">
-				<div class="cb-width flex-justify-content-start">
+				<div class="cb-width">
 					<input class="checkbox" type="checkbox" id="no">
-					<label class="checkbox-label" for="no">Not-interested</label>
+					<label class="checkbox-label flex-justify-content-start" for="no">Not-interested</label>
 				</div>
 			</div>
 		</div>

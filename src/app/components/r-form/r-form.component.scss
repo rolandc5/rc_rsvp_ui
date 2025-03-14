@@ -8,13 +8,16 @@
   text-align: center;
 }
 
-.page-1 {
-  width: 100%;
+form {
+  padding-top: 5vh;
+}
 
+.page-1 {
   .info {
     line-height: 30px;
     letter-spacing: 1px; 
     font-size: $font-size--small;
+    margin-bottom: 3vh;
   }
 
   p {
@@ -37,6 +40,9 @@
     font-weight: 400;
     padding-left: 10px;
     text-align: center;
+    -webkit-appearance: none;  /* Remove Safari's default appearance */
+    -moz-appearance: none;     /* For Firefox */
+    appearance: none;          /* General reset */
   }
 }
 
@@ -55,11 +61,23 @@
 .cb-container {
   width: 100%;
 
-  .cb-width {
-    width: 65%;
-
-    .checkbox {
-      border: none;
+  div {
+    width: 100%;
+    .cb-width {
+      width: 100%;
+      .checkbox {
+        display: none;
+      }
+      .checkbox-label {
+        border-radius: 10px;
+        padding: 5px;
+        margin-bottom: 15px;
+        text-align: left;
+        width: 100%;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        font-size: $font-size--large;
+      }
     }
   }
 }
@@ -72,9 +90,10 @@
 
 .page-2 {
   width: 100%;
+  flex-wrap: wrap;
 
   .info {
-    font-size: $font-size--medium;
+    font-size: $font-size--large;
   }
 }
 
@@ -119,5 +138,15 @@
 
 /* Desktops */
 @media (min-width: 1280px) {
-
+  .cb-container {
+    width: 100%;
+  
+    .cb-width {
+      width: 65%;
+  
+      .checkbox {
+        border: none;
+      }
+    }
+  }  
 }
