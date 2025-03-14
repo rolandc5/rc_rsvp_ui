@@ -11,4 +11,8 @@ export class SheetsService {
   getInviteInfo(name: string) {
     return this.http.get(`https://api.rccanuto.com/?name=${name}`);
   }
+
+  postInviteInfo(data: any) {
+    return this.http.post('http://localhost:21790/update', data); 
+  }
 }

@@ -31,6 +31,9 @@ interface Rsvp {
 export class RFormComponent implements OnInit {
   sheetService = inject(SheetsService);
   name: string = '';
+  allergy: string = '';
+  plusOne: string = '';
+  songRequest: string = '';
   rsvpLists: Rsvp = {} as Rsvp;
   pageEnum = {
     1: 'find',
@@ -38,7 +41,8 @@ export class RFormComponent implements OnInit {
     3: 'allergy',
     4: 'plus1',
     5: 'songRequest',
-    6: 'wow'
+    6: 'thankyou',
+    7: 'none'
   }
   pageCache: number = 1;
   page: string = this.pageEnum[1];
@@ -66,13 +70,17 @@ export class RFormComponent implements OnInit {
         this.page = this.pageEnum[5];
         this.pageCache = 5;
       }
+      else if (this.pageCache === 5) {
+        this.page = this.pageEnum[6];
+        this.pageCache = 6;
+      }
     }
   }
 
   searchInviteInfo() {
     this.sheetService.getInviteInfo(this.name).subscribe((data: any) => {
       this.rsvpLists = data;
-      this.page = this.pageEnum[6];
+      this.page = this.pageEnum[7];
     }, err => {
       console.log(err);
     });
@@ -87,25 +95,50 @@ export class RFormComponent implements OnInit {
     }
   }
 
+  radioSelect(e: Event) {
+    const selectedRadio = (e.target as HTMLInputElement).id;
+    if (selectedRadio === 'interested') {
+      this.plusOne = 'yes';
+    } else if (selectedRadio === 'not-interested') {
+      this.plusOne = 'no';
+    }
+  }
+
+
   selectRsvp() {
     this.rsvpLists.group.forEach((invitee: any) => {
       if (invitee[0] === '') {
         invitee[0] = 'no';
       }
     });
-    this.page = this.pageEnum[6];
+    this.page = this.pageEnum[7];
   }
 
   allergySubmit() {
-    this.page = this.pageEnum[6];
+    this.rsvpLists.group.forEach((invitee: any) => {
+      invitee[4] = this.allergy;
+    });
+    this.page = this.pageEnum[7];
   }
 
   plusOneSubmit() {
-    this.page = this.pageEnum[6];
+    this.rsvpLists.group.forEach((invitee: any) => {
+      invitee[5] = this.plusOne;
+    });
+    this.page = this.pageEnum[7];
   }
 
   onSubmit() {
-    console.log(this.rsvpLists.group)
+    this.rsvpLists.group.forEach((invitee: any) => {
+      invitee[6] = this.songRequest;
+      invitee[7] = 'submitted'
+    });
+    this.sheetService.postInviteInfo(this.rsvpLists).subscribe((data: any) => {
+      this.page = this.pageEnum[6];
+      this.page = this.pageEnum[7];
+    }, err => {
+      console.log(err);
+    });
   }
 
 }
