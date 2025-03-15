@@ -14,7 +14,7 @@ export class PrimaryService {
   }
 
   login(password: string | null) {
-    if (password === '123') {
+    if (password === 'mitzy&levi') {
       this._auth.set(true);
     }
   }
