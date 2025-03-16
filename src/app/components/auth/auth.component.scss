@@ -1,0 +1,20 @@
+@import '../../../shared/styles/global-styles.scss';
+
+.auth {
+  padding-top: 15vh;
+  input {
+    padding-bottom: 1px;
+    border: none;
+    border-bottom: solid 1px #ab5429;
+    color: #ab5429;
+    outline: none;
+    background-color: inherit;
+    font-family: $cardo;
+    font-weight: 400;
+    padding-left: 10px;
+    text-align: center;
+    -webkit-appearance: none;  /* Remove Safari's default appearance */
+    -moz-appearance: none;     /* For Firefox */
+    appearance: none;          /* General reset */
+  }
+}

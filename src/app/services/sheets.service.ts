@@ -13,6 +13,7 @@ export class SheetsService {
   }
 
   postInviteInfo(data: any) {
-    return this.http.post('https://api.rccanuto.com/update', data); 
+    // return this.http.post('https://api.rccanuto.com/update', data); 
+    return this.http.post('https://api.rccanuto.com/update', data);
   }
 }

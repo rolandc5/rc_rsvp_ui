@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmitPassword()">
+<form class="auth" (ngSubmit)="onSubmitPassword()">
   <input placeholder="input password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
   <button type="button" (click)="onSubmitPassword()">submit</button>
 </form>

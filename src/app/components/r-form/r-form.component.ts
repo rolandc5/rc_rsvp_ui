@@ -116,22 +116,22 @@ export class RFormComponent implements OnInit {
 
   allergySubmit() {
     this.rsvpLists.group.forEach((invitee: any) => {
-      invitee[4] = this.allergy;
+      invitee[5] = this.allergy;
     });
     this.page = this.pageEnum[7];
   }
 
   plusOneSubmit() {
     this.rsvpLists.group.forEach((invitee: any) => {
-      invitee[5] = this.plusOne;
+      invitee[6] = this.plusOne;
     });
     this.page = this.pageEnum[7];
   }
 
   onSubmit() {
     this.rsvpLists.group.forEach((invitee: any) => {
-      invitee[6] = this.songRequest;
-      invitee[7] = 'submitted'
+      invitee[7] = this.songRequest;
+      invitee[8] = 'submitted'
     });
     this.sheetService.postInviteInfo(this.rsvpLists).subscribe((data: any) => {
       this.page = this.pageEnum[6];

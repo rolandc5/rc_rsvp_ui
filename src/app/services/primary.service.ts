@@ -15,6 +15,7 @@ export class PrimaryService {
 
   login(password: string | null) {
     if (password === '123') {
+      // localStorage.setItem('auth', 'true');
       this._auth.set(true);
     }
   }
