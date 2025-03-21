@@ -29,7 +29,7 @@ interface Rsvp {
 })
 export class RFormComponent implements OnInit {
   sheetService = inject(SheetsService);
-  name: string = 'Roland Canuto';
+  name: string = '';
   allergy: string = '';
   plusOne: string = '';
   songRequest: string = '';
@@ -51,7 +51,7 @@ export class RFormComponent implements OnInit {
 
 
   ngOnInit() {
-    this.searchInviteInfo()
+    // this.searchInviteInfo()
   }
 
   onLeaveAnimationDone(e: any) {
