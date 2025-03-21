@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SheetsService } from '../../services/sheets.service';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { CommonModule } from '@angular/common';
 
 interface Rsvp {
   range: [number],
@@ -11,17 +12,15 @@ interface Rsvp {
 @Component({
   selector: 'r-form',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './r-form.component.html',
   styleUrl: './r-form.component.scss',
   animations: [
     trigger('slideInOut', [
-      // This is for the "enter" animation, if you want it to fade in when it enters
       transition(':enter', [
         style({ opacity: 0, transform: "translateX(60px)" }),
         animate('500ms', style({ opacity: 1, transform: "translateX(0px)" }))
       ]),
-      // This is for the "leave" animation, it fades out when removed
       transition(':leave', [
         animate('500ms', style({ opacity: 0, transform: "translateX(-60px)" }))
       ])
@@ -30,65 +29,40 @@ interface Rsvp {
 })
 export class RFormComponent implements OnInit {
   sheetService = inject(SheetsService);
-  name: string = '';
+  name: string = 'Roland Canuto';
   allergy: string = '';
   plusOne: string = '';
   songRequest: string = '';
   rsvpLists: Rsvp = {} as Rsvp;
+  pageAnimation: boolean = false;
+  searchError: boolean = false;
   pageEnum = {
     1: 'find',
-    2: 'invitation',
-    3: 'allergy',
-    4: 'plus1',
-    5: 'songRequest',
-    6: 'thankyou',
-    7: 'none'
+    2: 'confirmed',
+    3: 'invitation',
+    4: 'allergy',
+    5: 'plus1',
+    6: 'songRequest',
+    7: 'thankyou',
+    8: 'none'
   }
   pageCache: number = 1;
   page: string = this.pageEnum[1];
 
 
   ngOnInit() {
-
+    this.searchInviteInfo()
   }
 
   onLeaveAnimationDone(e: any) {
     if (e.toState === 'void') {
-      if (this.pageCache === 1) {
-        this.page = this.pageEnum[2];
-        this.pageCache = 2;
-      }
-      else if (this.pageCache === 2) {
-        this.page = this.pageEnum[3];
-        this.pageCache = 3;
-      }
-      else if (this.pageCache === 3) {
-        this.page = this.pageEnum[4];
-        this.pageCache = 4;
-      }
-      else if (this.pageCache === 4) {
-        this.page = this.pageEnum[5];
-        this.pageCache = 5;
-      }
-      else if (this.pageCache === 5) {
-        this.page = this.pageEnum[6];
-        this.pageCache = 6;
-      }
+      this.pageAnimation = false;
     }
   }
 
-  searchInviteInfo() {
-    this.sheetService.getInviteInfo(this.name).subscribe((data: any) => {
-      this.rsvpLists = data;
-      this.page = this.pageEnum[7];
-    }, err => {
-      console.log(err);
-    });
-  }
-
   selectedInvitee(e: Event, arrIndex: number) {
-    const inviteeChecked = (e.target as HTMLInputElement).checked
-    if (inviteeChecked === true) {
+    const selectedRadio = (e.target as HTMLInputElement).id
+    if (selectedRadio === `attending${arrIndex}`) {
       this.rsvpLists.group[arrIndex][0] = 'yes';
     } else {
       this.rsvpLists.group[arrIndex][0] = 'no';
@@ -104,6 +78,16 @@ export class RFormComponent implements OnInit {
     }
   }
 
+  searchInviteInfo() {
+    this.sheetService.getInviteInfo(this.name).subscribe((data: any) => {
+      this.rsvpLists = data;
+      this.page = this.pageEnum[3];
+      this.pageAnimation = false;
+      this.searchError = false;
+    }, err => {
+      this.searchError = true;
+    });
+  }
 
   selectRsvp() {
     this.rsvpLists.group.forEach((invitee: any) => {
@@ -111,21 +95,24 @@ export class RFormComponent implements OnInit {
         invitee[0] = 'no';
       }
     });
-    this.page = this.pageEnum[7];
+    this.page = this.pageEnum[4];
+    this.pageAnimation = true;
   }
 
   allergySubmit() {
     this.rsvpLists.group.forEach((invitee: any) => {
       invitee[5] = this.allergy;
     });
-    this.page = this.pageEnum[7];
+    this.page = this.pageEnum[5];
+    this.pageAnimation = true;
   }
 
   plusOneSubmit() {
     this.rsvpLists.group.forEach((invitee: any) => {
       invitee[6] = this.plusOne;
     });
-    this.page = this.pageEnum[7];
+    this.page = this.pageEnum[6];
+    this.pageAnimation = true;
   }
 
   onSubmit() {
@@ -134,8 +121,8 @@ export class RFormComponent implements OnInit {
       invitee[8] = 'submitted'
     });
     this.sheetService.postInviteInfo(this.rsvpLists).subscribe((data: any) => {
-      this.page = this.pageEnum[6];
       this.page = this.pageEnum[7];
+      this.pageAnimation = true;
     }, err => {
       console.log(err);
     });

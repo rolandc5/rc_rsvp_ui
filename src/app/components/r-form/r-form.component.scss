@@ -1,7 +1,6 @@
 @import '../../../shared/styles/global-styles.scss';
 @import '../../../shared/styles/cssanimation.css';
 
-
 .info {
   font-size: $font-size--medium;
   text-align: center;
@@ -23,6 +22,10 @@ form {
     text-wrap: wrap;
     font-size: $font-size--large;
     margin-right: 10px;
+  }
+
+  .error {
+    font-size: $font-size--x-small;
   }
 
   input {
@@ -92,11 +95,38 @@ form {
 }
 
 .page-2 {
-  width: 100%;
   flex-wrap: wrap;
+
+  div {
+    .btn-style {
+      margin: none;
+      font-size:$font-size--x-small;
+    }  
+  }
 
   .info {
     font-size: $font-size--large;
+  }
+
+  .name {
+    text-align: start;
+    font-size: $font-size--medium;
+  }
+
+  .radio-btn {
+    display: none;
+  }
+
+  .btn-style {
+    display: inline-block;
+    border: solid 1px;
+    padding: 5px 0px;
+    width: 125px;
+  }
+
+  .active {
+    background-color: #ab5429;
+    color: #fff;
   }
 }
 

@@ -7,3 +7,7 @@ body {
   font-family: $cardo;
   overflow-y: scroll;
 }
+
+input { 
+  -webkit-border-radius: 0; 
+}
