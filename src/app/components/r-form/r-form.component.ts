@@ -82,7 +82,7 @@ export class RFormComponent implements OnInit {
     this.sheetService.getInviteInfo(this.name).subscribe((data: any) => {
       this.rsvpLists = data;
       this.page = this.pageEnum[3];
-      this.pageAnimation = false;
+      this.pageAnimation = true;
       this.searchError = false;
     }, err => {
       this.searchError = true;
