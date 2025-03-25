@@ -21,7 +21,6 @@ export class PrimaryService {
     if (password === 'mitzy&levi' || auth === 'true') {
       if (typeof window !== 'undefined') {
         localStorage.setItem('auth', 'true');
-        console.log(localStorage.getItem('auth'));
       }
       this._auth.set(true);
     }
