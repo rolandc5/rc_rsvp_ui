@@ -14,7 +14,15 @@ export class PrimaryService {
   }
 
   login(password: string | null) {
-    if (password === 'mitzy&levi') {
+    let auth = null;
+    if (typeof window !== 'undefined') {
+      auth = localStorage.getItem('auth');
+    }
+    if (password === 'mitzy&levi' || auth === 'true') {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('auth', 'true');
+        console.log(localStorage.getItem('auth'));
+      }
       this._auth.set(true);
     }
   }

@@ -51,7 +51,6 @@ export class RFormComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.searchInviteInfo()
   }
 
   onLeaveAnimationDone(e: any) {

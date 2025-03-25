@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PrimaryService } from '../../services/primary.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'auth',
@@ -15,15 +16,15 @@ export class AuthComponent implements OnInit {
   password: string | null = '';
 
   constructor(private route: ActivatedRoute, private router: Router) {
-    this.password = this.route.snapshot.queryParamMap.get('password');
   }
 
   ngOnInit() {
-    this.primaryService.login(this.password)
+    this.password = this.route.snapshot.queryParamMap.get('password');
+    this.primaryService.login(this.password);
   }
 
   onSubmitPassword() {
-    this.router.navigate([], { queryParams: { password: this.password }})
+    this.router.navigate([], { queryParams: { password: this.password } })
     this.primaryService.login(this.password);
   }
 }

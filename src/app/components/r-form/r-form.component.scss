@@ -6,7 +6,7 @@
   text-align: center;
 }
 
-form {
+form, .form {
   padding-top: 5vh;
 }
 
@@ -124,6 +124,7 @@ form {
   }
 
   .active {
+    border: solid 1px #ab5429;
     background-color: #ab5429;
     color: #fff;
   }
@@ -200,6 +201,10 @@ form {
 
 /* Desktops */
 @media (min-width: 1280px) {
+  form, .form {
+    padding-top: 10vh;
+  }
+
   .cb-container {
     width: 100%;
   

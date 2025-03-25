@@ -1,4 +1,4 @@
-<form class="auth" (ngSubmit)="onSubmitPassword()">
-  <input placeholder="input password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+<form class="auth flex-direction-column" (ngSubmit)="onSubmitPassword()">
+  <input placeholder="Enter Password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
   <button type="button" (click)="onSubmitPassword()">submit</button>
 </form>

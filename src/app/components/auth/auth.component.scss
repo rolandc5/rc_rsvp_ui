@@ -8,6 +8,7 @@
     border-bottom: solid 1px #ab5429;
     color: #ab5429;
     outline: none;
+    font-size: $font-size--medium;
     background-color: inherit;
     font-family: $cardo;
     font-weight: 400;
@@ -16,5 +17,12 @@
     -webkit-appearance: none;  /* Remove Safari's default appearance */
     -moz-appearance: none;     /* For Firefox */
     appearance: none;          /* General reset */
+  }
+
+  button {
+    background-color: inherit;
+    border: none;
+    margin-top: 2vh;
+    font-size: $font-size--medium;
   }
 }
