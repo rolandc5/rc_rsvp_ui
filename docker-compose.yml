@@ -4,6 +4,6 @@ services:
       container_name: rsvp_ui
       ports:
         - 4200:4200
-      command: npm start
+      command: ng build && ng run serve-prod
       volumes:
         - .:/app
