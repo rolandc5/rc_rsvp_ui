@@ -8,3 +8,4 @@ services:
       command: bash -c "npm run build-prod && npm run serve-prod"
       volumes:
         - .:/app
+      restart: unless-stopped
