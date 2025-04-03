@@ -4,13 +4,14 @@
 		<div class="page-1">
 			<div class="flex-direction-column flex-align-items-center">
 				<p class="info">
-					Please enter the first and last name of one member of your party below. <br> If you're responding for you and
-					a guest (or your family) you'll be able to RSVP for your entire group on the next page.
+					Please enter the first and last name of one member of your group below. <br> If you're responding for yourself and
+					a guest or your family you will be able to RSVP for your entire group on the next page.
 				</p>
 				<input [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="First and Last Name">
 				@if (searchError === true) {
-				<p class="error">Oops! We're having trouble finding your invite. Please try another spelling of your name or
-					contact the couple</p>
+				<p class="error">Oops! We're having trouble finding your invite. Please enter your full name or contact us through this 
+					<a href="https://rccanuto.com/home/contact" style="color:#ab5429;">form</a> for help. Thank you!
+				</p>
 				}
 			</div>
 		</div>
@@ -122,6 +123,6 @@
 <div class="page-6 form" @slideInOut>
 	<p class="thank-you-info">Thank you for your RSVP!</p>
 	<p class="thank-you-info">We can't wait to celebrate with you!</p>
-	<p class="thank-you-info">Love, <br /> The Bride & Groom</p>
+	<p class="thank-you-info">Love, <br /> Rochelle & Carlo</p>
 </div>
 }
