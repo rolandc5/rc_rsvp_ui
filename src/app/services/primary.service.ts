@@ -7,7 +7,7 @@ export class PrimaryService {
   _auth = signal(false);
 
   constructor() {
-   }
+  }
 
   get auth() {
     return () => this._auth();

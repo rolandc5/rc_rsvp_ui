@@ -16,13 +16,22 @@ interface Rsvp {
   templateUrl: './r-form.component.html',
   styleUrl: './r-form.component.scss',
   animations: [
+    // trigger('slideInOut', [
+    //   transition(':enter', [
+    //     style({ opacity: 0, transform: "translateX(60px)" }),
+    //     animate('500ms', style({ opacity: 1, transform: "translateX(0px)" }))
+    //   ]),
+    //   transition(':leave', [
+    //     animate('500ms', style({ opacity: 0, transform: "translateX(-60px)" }))
+    //   ])
+    // ])
     trigger('slideInOut', [
       transition(':enter', [
-        style({ opacity: 0, transform: "translateX(60px)" }),
-        animate('500ms', style({ opacity: 1, transform: "translateX(0px)" }))
+        style({ opacity: 0, }),
+        animate('500ms', style({ opacity: 1, }))
       ]),
       transition(':leave', [
-        animate('500ms', style({ opacity: 0, transform: "translateX(-60px)" }))
+        animate('500ms', style({ opacity: 0, }))
       ])
     ])
   ]
@@ -55,7 +64,10 @@ export class RFormComponent implements OnInit {
 
   onLeaveAnimationDone(e: any) {
     if (e.toState === 'void') {
-      this.pageAnimation = false;
+      setTimeout(() => {
+        console.log('wow');
+        this.pageAnimation = false;
+      }, 500)
     }
   }
 
