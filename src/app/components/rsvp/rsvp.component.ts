@@ -1,9 +1,7 @@
-import { Component, inject, effect } from '@angular/core';
+import { Component } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { ReactiveFormsModule } from '@angular/forms'
 import { SearchRsvpComponent } from '../conversational-form/search-rsvp/search-rsvp.component';
-import { SheetsService } from '../../services/sheets.service';
-import { Rsvp } from '../../models/rsvp';
 import { GuestsListComponent } from '../conversational-form/guests-list/guests-list.component';
 import { AllergiesComponent } from '../conversational-form/allergies/allergies.component';
 import { PlusOneComponent } from '../conversational-form/plus-one/plus-one.component';
@@ -17,12 +15,13 @@ import { ThankYouComponent } from '../conversational-form/thank-you/thank-you.co
   templateUrl: './rsvp.component.html',
   styleUrl: './rsvp.component.scss',
   animations: [
-    trigger('slideInOut', [
+    trigger('fadeInOut', [
       transition(':enter', [
         style({ opacity: 0, }),
         animate('500ms', style({ opacity: 1, }))
       ]),
       transition(':leave', [
+        style({ opacity: 1 }),
         animate('500ms', style({ opacity: 0, }))
       ])
     ])
