@@ -10,9 +10,11 @@
 }
 
 .rsvp-date {
-  text-wrap: wrap;
-  font-size: $font-size--small;
-  margin-right: 10px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  font-size: $font-size--x-small;
+  margin-bottom: 3vh;
+  text-align: center;
 }
 
 p {
