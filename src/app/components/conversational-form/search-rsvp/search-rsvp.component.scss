@@ -3,7 +3,6 @@
 .info {
   line-height: 30px;
   letter-spacing: 1px;
-  font-size: $font-size--small;
   margin-bottom: 3vh;
   font-size: $font-size--medium;
   text-align: center;
@@ -39,4 +38,25 @@ input {
   /* For Firefox */
   appearance: none;
   /* General reset */
+}
+
+
+/* Tablets */
+@media (min-width: 768px) {
+  body {}
+}
+
+/* Small Laptops */
+@media (min-width: 1024px) {
+  body {}
+}
+
+/* Desktops */
+@media (min-width: 1280px) {
+  .info {
+    line-height: 40px;
+    letter-spacing: 1.2px;
+    font-size: $font-size--medium;
+  }
+  
 }
