@@ -1,23 +1,30 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { map } from 'rxjs';
+import { Rsvp } from '../models/rsvp';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SheetsService {
+  _rsvp = signal({} as Rsvp)
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
+  }
+
+  get rsvp() {
+    return this._rsvp();
   }
   
   getInviteInfo(name: string) {
-    // return this.http.get(`https://api.rccanuto.com/?name=${name}`);
-    return this.http.get(`${environment.API_URL}/?name=${name}`);
+    return this.http.get<Rsvp>(`${environment.API_URL}/?name=${name}`).pipe(map(response => {
+      this._rsvp.set(response);
+    }));
   }
 
-  postInviteInfo(data: any) {
-    // return this.http.post('https://api.rccanuto.com/update', data); 
-    return this.http.post(`${environment.API_URL}/update`, data);
+  postInviteInfo() {
+    return this.http.post(`${environment.API_URL}/update`, this.rsvp);
   }
 }

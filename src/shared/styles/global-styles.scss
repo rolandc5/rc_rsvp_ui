@@ -23,6 +23,11 @@ $input-border-radius: 7px;
   justify-content: space-between;
 }
 
+.flex-text-align-center {
+  display: flex;
+  text-align: center;
+}
+
 .flex-justify-content-start {
   display: flex;
   justify-content: flex-start;
@@ -33,6 +38,10 @@ $input-border-radius: 7px;
   justify-content: flex-end;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-direction-row {
   display: flex;
   flex-direction: row;
@@ -41,4 +50,22 @@ $input-border-radius: 7px;
 .flex-direction-column {
   display: flex;
   flex-direction: column;
+}
+
+.width-hundred-percent {
+  width: 100%;
+}
+
+.btn-container {
+  margin-top: 3vh;
+  .button {
+    border: solid 1px #ab5429;
+    background-color: #ab5429;
+    color: #fff;
+    font-size: $font-size--large;
+    font-family: $cardo;
+    font-weight: 400;
+    cursor: pointer;
+    width: 20%;
+  }
 }

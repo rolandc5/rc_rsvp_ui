@@ -1,18 +1,28 @@
 <div class="title">
   <h2>rsvp</h2>
 </div>
-@if (auth === false) {
-  <div class="form-container flex-justify-content-center">
-    <div class="rsvp-form">
-      <auth></auth>
-    </div>
+<div class="form-container flex-justify-content-center">
+  <div class="rsvp-form">
+    @if (page === pageEnum[1] && pageAnimation === false) {
+      <search-rsvp (pageOutput)="curPage($event)" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)"></search-rsvp>
+    }
+    @else if (page === pageEnum[2] && pageAnimation === false) {
+      wow
+    }
+    @else if (page === pageEnum[3] && pageAnimation === false) {
+      <guests-list (pageOutput)="curPage($event)" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)"></guests-list>
+    }
+    @else if (page === pageEnum[4] && pageAnimation === false) {
+      <allergies (pageOutput)="curPage($event)" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)"></allergies>
+    }
+    @else if (page === pageEnum[5] && pageAnimation === false) {
+      <plus-one (pageOutput)="curPage($event)" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)"></plus-one>
+    }
+    @else if (page === pageEnum[6] && pageAnimation === false) {
+      <song-request (pageOutput)="curPage($event)" @slideInOut (@slideInOut.done)="onLeaveAnimationDone($event)"></song-request>
+    }
+    @else if (page === pageEnum[7] && pageAnimation === false) {
+      <thank-you></thank-you>
+    }
   </div>
-} @else {
-  <div class="form-container flex-justify-content-center">
-    <div class="rsvp-form">
-      <r-form></r-form>
-    </div>
-  </div>
-}
-
-
+</div>

@@ -1,0 +1,12 @@
+<form (ngSubmit)="allergySubmit()">
+	<div class="width-hundred-percent">
+		<div>
+			<p class="allergy-info">Are there any <span style="color: #ab5429">food allergies</span> or <span
+					style="color: #ab5429">restrictions</span> <br />we should be aware of?</p>
+		</div>
+		<textarea [(ngModel)]="allergy" [ngModelOptions]="{standalone: true}"></textarea>
+	</div>
+	<div class="flex-align-items-center flex-justify-content-center flex-text-align-center btn-container">
+		<button type="submit" class="button" (click)="allergySubmit()">next</button>
+	</div>
+</form>

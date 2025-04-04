@@ -1,0 +1,24 @@
+<form (ngSubmit)="searchInviteInfo()">
+	<input type="submit" style="display: none">
+	<div class="flex-direction-row">
+		<div class="page-1">
+			<div class="flex-direction-column flex-align-items-center">
+				<p class="info">
+					Please enter the first and last name of one member of your group below. <br> If you're responding for yourself
+					and
+					a guest or your family you will be able to RSVP for your entire group on the next page.
+				</p>
+				<input [(ngModel)]="name" [ngModelOptions]="{standalone: true}" placeholder="First and Last Name">
+				@if (searchError === true) {
+				<p class="error">Oops! We're having trouble finding your invite. Please enter your full name or contact us
+					through this
+					<a href="https://rccanuto.com/home/contact" style="color:#ab5429;">form</a> for help. Thank you!
+				</p>
+				}
+			</div>
+		</div>
+	</div>
+	<div class="flex-align-items-center flex-justify-content-center flex-text-align-center btn-container">
+		<button type="button" class="button" (click)="searchInviteInfo()">next</button>
+	</div>
+</form>

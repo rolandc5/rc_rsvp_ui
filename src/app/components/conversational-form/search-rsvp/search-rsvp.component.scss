@@ -1,0 +1,42 @@
+@import '../../../../shared/styles/global-styles.scss';
+
+.info {
+  line-height: 30px;
+  letter-spacing: 1px;
+  font-size: $font-size--small;
+  margin-bottom: 3vh;
+  font-size: $font-size--medium;
+  text-align: center;
+}
+
+p {
+  text-wrap: wrap;
+  font-size: $font-size--large;
+  margin-right: 10px;
+}
+
+.error {
+  font-size: $font-size--x-small;
+}
+
+input {
+  display: inline;
+  width: 100%;
+  padding-bottom: 1px;
+  border: none;
+  border-bottom: solid 1px #ab5429;
+  color: #ab5429;
+  outline: none;
+  background-color: inherit;
+  font-size: $font-size--large;
+  font-family: $cardo;
+  font-weight: 400;
+  padding-left: 10px;
+  text-align: center;
+  -webkit-appearance: none;
+  /* Remove Safari's default appearance */
+  -moz-appearance: none;
+  /* For Firefox */
+  appearance: none;
+  /* General reset */
+}

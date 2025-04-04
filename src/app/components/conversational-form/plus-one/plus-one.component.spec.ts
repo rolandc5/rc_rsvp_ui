@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RFormComponent } from './r-form.component';
+import { PlusOneComponent } from './plus-one.component';
 
-describe('RFormComponent', () => {
-  let component: RFormComponent;
-  let fixture: ComponentFixture<RFormComponent>;
+describe('PlusOneComponent', () => {
+  let component: PlusOneComponent;
+  let fixture: ComponentFixture<PlusOneComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RFormComponent]
+      imports: [PlusOneComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RFormComponent);
+    fixture = TestBed.createComponent(PlusOneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

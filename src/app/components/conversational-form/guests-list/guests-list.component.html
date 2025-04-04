@@ -1,0 +1,31 @@
+<form (ngSubmit)="selectRsvp()">
+	<div class="flex-wrap flex-direction-row flex-justify-content-center">
+		<p class="info">Who are we <span style="color: #ab5429">expecting to attend </span> <br> the big day?</p>
+		<div class="width-hundred-percent flex-justify-content-center flex-align-items-center flex-direction-column">
+			@for (invitee of rsvpLists.group; track invitee[1]; let i = $index) {
+			<div class="width-hundred-percent flex-justify-content-center flex-align-items-center">
+				<div class="width-hundred-percent">
+					<p class="name">
+						{{invitee[1]}} {{invitee[3]}}
+					</p>
+				</div>
+				<input class="radio-btn flex-justify-content-end" type="radio" id="attending{{$index}}"
+					(click)="selectedInvitee($event, $index)">
+				<label [ngClass]="invitee[0] === 'yes' ? 'active' : 'not-active'" class="btn-style" style="margin-right: 5px"
+					for="attending{{$index}}">
+					{{ invitee[0] === 'yes' ? 'accepted' : 'accept' }}
+				</label>
+				<input class="radio-btn flex-justify-content-end" type="radio" id="not-attending{{$index}}"
+					(click)="selectedInvitee($event, $index)">
+				<label [ngClass]="invitee[0] === 'no' ? 'active' : 'not-active'" class="btn-style"
+					for="not-attending{{$index}}">
+					{{ invitee[0] === 'no' ? 'declined' : 'decline' }}
+				</label>
+			</div>
+			}
+		</div>
+	</div>
+	<div class="btn-container flex-align-items-center flex-justify-content-center flex-text-align-center">
+		<button class="next" type="submit" class="button">next</button>
+	</div>
+</form>
