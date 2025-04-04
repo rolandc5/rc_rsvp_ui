@@ -9,6 +9,12 @@
   text-align: center;
 }
 
+.rsvp-date {
+  text-wrap: wrap;
+  font-size: $font-size--small;
+  margin-right: 10px;
+}
+
 p {
   text-wrap: wrap;
   font-size: $font-size--large;
