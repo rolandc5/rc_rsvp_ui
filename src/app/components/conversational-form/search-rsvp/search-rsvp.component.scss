@@ -8,6 +8,15 @@
   text-align: center;
 }
 
+.rsvp-date {
+  line-height: 30px;
+  letter-spacing: 1px;
+  font-size: $font-size--x-small;
+  margin-bottom: 3vh;
+  text-align: center;
+  font-weight: bold;
+}
+
 p {
   text-wrap: wrap;
   font-size: $font-size--large;
