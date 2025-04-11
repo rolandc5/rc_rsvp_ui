@@ -3,3 +3,13 @@
 .thank-you-info {
   font-size: $font-size--medium;
 }
+
+.thank-you-link {
+  font-size: $font-size--medium;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
