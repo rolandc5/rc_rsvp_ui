@@ -1,3 +1,19 @@
+
+@if (navMenuPopup === true) {
+  <div class="menu-container">
+    <button (click)="navMenuPopup = false">close</button>
+    <div class="width-hundred flex-justify-content-center">
+      <ul class="nav-list flex-text-align-center">
+        <li class="home"><a>home</a></li>
+        <li><a class="underline">information</a></li>
+        <li><a class="underline">our story</a></li>
+        <li><a class="underline">contact us</a></li>
+        <li><a class="underline">rsvp</a></li>
+        <li><a class="underline">registry</a></li>
+      </ul>
+    </div>
+  </div>
+}
 <header>
   <div class="flex-align-items-center flex-justify-content-between">
     <div>
@@ -6,24 +22,9 @@
       </p>
     </div>
     <div>
-      <nav class="flex-direction-row">
-        <div class="nav flex-direction-row">
-          <a class="underline" href="https://rccanuto.com">home</a>
-          <!-- <p class="underline">home</p>
-          <button>
-            <svg xmlns="http://www.w3.org/2000/svg" width="8.5" height="8.5" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
-              <path stroke="black" d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5"></path>
-            </svg>
-          </button> -->
-        </div>
-        <!-- <ul class="nav-list">
-          <li><a class="underline">information</a></li>
-          <li><a class="underline">our story</a></li>
-          <li><a class="underline">contact us</a></li>
-          <li><a class="underline">rsvp</a></li>
-          <li><a class="underline">registry</a></li>
-        </ul> -->
-      </nav>
+      <div class="nav flex-direction-row">
+        <button class="menu-btn" href="https://rccanuto.com" (click)="navMenuPopup = true">menu</button>
+      </div>
     </div>
   </div>
 </header>

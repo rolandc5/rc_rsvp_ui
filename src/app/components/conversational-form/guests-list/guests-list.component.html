@@ -1,10 +1,10 @@
 <form (ngSubmit)="selectRsvp()">
 	<div class="flex-wrap flex-direction-row flex-justify-content-center">
 		<p class="info">Who are we <span style="color: #ab5429">expecting to attend </span> <br> the big day?</p>
-		<div class="width-hundred-percent flex-justify-content-center flex-align-items-center flex-direction-column">
+		<div class="width-hundred flex-justify-content-center flex-align-items-center flex-direction-column">
 			@for (invitee of rsvpLists.group; track invitee[1]; let i = $index) {
-			<div class="width-hundred-percent flex-justify-content-center flex-align-items-center">
-				<div class="width-hundred-percent">
+			<div class="width-hundred flex-justify-content-center flex-align-items-center">
+				<div class="width-hundred">
 					<p class="name">
 						{{invitee[1]}} {{invitee[3]}}
 					</p>
