@@ -2,10 +2,10 @@ services:
    rsvp_ui:
       build: .
       container_name: rsvp_ui
-#      ports:
-#        - 4200:4200
+      ports:
+        - 4200:4200
 #      command: ng build && ng run serve-prod
       command: bash -c "npm run build-prod && npm run serve-prod"
       volumes:
-        - .:/app
+        - .:/src/app
       restart: unless-stopped
