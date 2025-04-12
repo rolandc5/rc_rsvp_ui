@@ -63,6 +63,17 @@ header {
 .home {
   font-size: $font-size--small;
   margin-bottom: 3vh;
+  cursor: pointer;
+}
+
+.home:visited {
+  color: inherit !important;
+}
+
+.home:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 0.8px !important;
+  text-underline-offset: 0.2em;
 }
 
 .menu-container {
