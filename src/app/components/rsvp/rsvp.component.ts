@@ -6,12 +6,15 @@ import { GuestsListComponent } from '../conversational-form/guests-list/guests-l
 import { AllergiesComponent } from '../conversational-form/allergies/allergies.component';
 import { PlusOneComponent } from '../conversational-form/plus-one/plus-one.component';
 import { SongRequestComponent } from '../conversational-form/song-request/song-request.component';
+import { WelcomeDinnerComponent } from "../conversational-form/welcome-dinner/welcome-dinner.component";
+import { JoinUsComponent } from "../conversational-form/join-us/join-us.component";
 import { ThankYouComponent } from '../conversational-form/thank-you/thank-you.component';
+
 
 @Component({
   selector: 'app-rsvp',
   standalone: true,
-  imports: [ReactiveFormsModule, SearchRsvpComponent, GuestsListComponent, AllergiesComponent, PlusOneComponent, SongRequestComponent, ThankYouComponent],
+  imports: [ReactiveFormsModule, SearchRsvpComponent, GuestsListComponent, AllergiesComponent, PlusOneComponent, SongRequestComponent, ThankYouComponent, JoinUsComponent, WelcomeDinnerComponent],
   templateUrl: './rsvp.component.html',
   styleUrl: './rsvp.component.scss',
   animations: [
@@ -36,8 +39,10 @@ export class RsvpComponent {
     4: 'allergy',
     5: 'plus1',
     6: 'songRequest',
-    7: 'thankyou',
-    8: 'none'
+    7: 'welcome-dinner',
+    8: 'join-us',
+    9: 'thankyou',
+    10: 'none'
   }
   page: string = this.pageEnum[1];
 

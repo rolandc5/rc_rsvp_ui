@@ -1,0 +1,24 @@
+<form (ngSubmit)="welcomeDinnerSubmit()">
+  <div class="flex-direction-column flex-justify-content-center">
+    <p class="info">Will you be joining our Welcome Dinner on <span style="color: #ab5429">December 03</span>?</p>
+    <div class="width-hundred flex-justify-content-center flex-direction-column">
+      <div class="flex-justify-content-center">
+        <div class="width-hundred flex-align-items-center flex-justify-content-center">
+          <input class="radio-btn " type="radio" id="interested" (click)="radioSelect($event)">
+          <label [ngClass]="joinUs === 'yes' ? 'active' : 'not-active'" class="btn-style flex-text-align-center"
+            style="margin-right: 15px" for="interested">
+            yes
+          </label>
+          <input class="radio-btn" type="radio" id="not-interested" (click)="radioSelect($event)">
+          <label [ngClass]="joinUs === 'no' ? 'active' : 'not-active'" class="btn-style flex-text-align-center"
+            for="not-interested">
+            no
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex-align-items-center flex-justify-content-center flex-text-align-center btn-container">
+    <button type="submit" class="button" (click)="welcomeDinnerSubmit()">next</button>
+  </div>
+</form>

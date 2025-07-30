@@ -1,0 +1,30 @@
+@import '../../../../shared/styles/global-styles.scss';
+
+.info {
+  font-size: $font-size--medium;
+}
+
+.btn-style {
+  font-size: $font-size--small;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+//For radio buttons
+.radio-btn {
+  display: none;
+}
+
+.btn-style {
+  display: inline-block;
+  border: solid 1px;
+  padding: 5px 0px;
+  width: 125px;
+}
+
+.active {
+  border: solid 1px #ab5429;
+  background-color: #ab5429;
+  color: #fff;
+}

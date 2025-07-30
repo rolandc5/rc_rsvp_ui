@@ -33,6 +33,16 @@
     }
     @else if (page === pageEnum[7] && pageAnimation === false) {
       <div @fadeInOut (@fadeInOut.done)="onLeaveAnimationDone($event)">
+        <welcome-dinner (pageOutput)="curPage($event)"></welcome-dinner>
+      </div>
+    }
+    @else if (page === pageEnum[8] && pageAnimation === false) {
+      <div @fadeInOut (@fadeInOut.done)="onLeaveAnimationDone($event)">
+        <join-us (pageOutput)="curPage($event)"></join-us>
+      </div>
+    }
+    @else if (page === pageEnum[9] && pageAnimation === false) {
+      <div @fadeInOut (@fadeInOut.done)="onLeaveAnimationDone($event)">
         <thank-you></thank-you>
       </div>
     }
