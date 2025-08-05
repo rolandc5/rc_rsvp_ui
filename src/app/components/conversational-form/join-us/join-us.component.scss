@@ -4,14 +4,25 @@
   font-size: $font-size--medium;
 }
 
+.join-us-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radio-container {
+  width: 100%;
+  direction: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .btn-style {
   font-size: $font-size--small;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-
-//For radio buttons
 .radio-btn {
   display: none;
 }
@@ -27,4 +38,22 @@
   border: solid 1px #ab5429;
   background-color: #ab5429;
   color: #fff;
+}
+
+.guest-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.guest-count input {
+  width: 100%;
+  box-sizing: border-box;
+} 
+
+.hidden {
+  display: none;
 }

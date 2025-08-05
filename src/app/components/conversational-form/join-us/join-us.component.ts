@@ -15,6 +15,8 @@ export class JoinUsComponent {
   sheetService = inject(SheetsService);
   rsvpLists: Rsvp = {} as Rsvp;
   joinUs: string = '';
+  email: string = '';
+guests: any;
 
   constructor() {
     effect(() => {
@@ -32,6 +34,11 @@ export class JoinUsComponent {
   }
 
   joinUsSubmit() {
+    if (this.joinUs === 'yes' && !this.guests) {
+      alert('Please enter the number of guests.');
+      return;
+    }
+
     this.rsvpLists.group.forEach((invitee: any) => {
       invitee[6] = this.joinUs;
     });
