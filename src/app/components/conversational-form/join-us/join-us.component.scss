@@ -57,3 +57,29 @@
 .hidden {
   display: none;
 }
+
+input {
+  display: inline;
+  width: 10%;
+  padding-bottom: 1px;
+  border: none;
+  border-bottom: solid 1px #000000;
+  color: #ab5429;
+  outline: none;
+  background-color: inherit;
+  font-size: $font-size--medium;
+  font-family: $cardo;
+  font-weight: 400;
+  padding-left: 10px;
+  text-align: center;
+  -webkit-appearance: none;
+  /* Remove Safari's default appearance */
+  -moz-appearance: textfield;
+  /* For Firefox */
+  appearance: none;
+  /* General reset */
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

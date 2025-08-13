@@ -20,6 +20,7 @@ export class SongRequestComponent {
   constructor() {
     effect(() => {
       this.rsvpLists = this.sheetService.rsvp;
+      this.songRequest = this.rsvpLists.group[0][7];
     })
   }
 

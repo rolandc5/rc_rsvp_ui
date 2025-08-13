@@ -16,11 +16,14 @@ export class JoinUsComponent {
   rsvpLists: Rsvp = {} as Rsvp;
   joinUs: string = '';
   email: string = '';
-guests: any;
+  guests: any;
+  inputError: boolean = false;
 
   constructor() {
     effect(() => {
       this.rsvpLists = this.sheetService.rsvp;
+      this.joinUs = this.rsvpLists.group[0][10];
+      this.guests = this.rsvpLists.group[0][11];
     })
   }
 
@@ -35,14 +38,15 @@ guests: any;
 
   joinUsSubmit() {
     if (this.joinUs === 'yes' && !this.guests) {
-      alert('Please enter the number of guests.');
+      this.inputError = true;
       return;
     }
-
+    console.log(this.rsvpLists);
     this.rsvpLists.group.forEach((invitee: any) => {
-      invitee[6] = this.joinUs;
+      invitee[10] = this.joinUs;
+      invitee[10] = this.guests;
     });
     this.sheetService._rsvp.set(this.rsvpLists);
-    this.pageOutput.emit(6);
+    this.pageOutput.emit(9);
   }
 }

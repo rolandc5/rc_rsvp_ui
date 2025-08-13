@@ -19,6 +19,7 @@ export class WelcomeDinnerComponent {
   constructor() {
     effect(() => {
       this.rsvpLists = this.sheetService.rsvp;
+      this.joinUs = this.rsvpLists.group[0][9];
     })
   }
 
@@ -33,9 +34,9 @@ export class WelcomeDinnerComponent {
 
   welcomeDinnerSubmit() {
     this.rsvpLists.group.forEach((invitee: any) => {
-      invitee[6] = this.joinUs;
+      invitee[9] = this.joinUs;
     });
     this.sheetService._rsvp.set(this.rsvpLists);
-    this.pageOutput.emit(6);
+    this.pageOutput.emit(8);
   }
 }

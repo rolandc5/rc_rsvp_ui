@@ -2,50 +2,33 @@
   <div class="join-us-container">
     <p class="info"><span style="color: #ab5429">Everyone</span> is invited!</p>
     <p class="info">
-        Will you be joining us for a group tour to swim with the Whale Sharks and Canyoneer at Kawasan Falls on <span style="color: #ab5429">December 06?</span></p>
+      Will you be joining us for a group tour to swim with the Whale Sharks and Canyoneer at Kawasan Falls on <span
+        style="color: #ab5429">December 06?</span></p>
     <!-- radio buttons -->
     <div class="radio-container">
-          <input
-              class="radio-btn" 
-              type="radio" 
-              id="interested" 
-              (click)="radioSelect($event)">
-          <label 
-              [ngClass]="joinUs === 'yes' ? 'active' : 'not-active'" 
-              class="btn-style flex-text-align-center"
-              style="margin-right: 15px" 
-              for="interested"
-              >yes
-          </label>
-          <input 
-              class="radio-btn" 
-              type="radio" 
-              id="not-interested" 
-              (click)="radioSelect($event)">
-          <label 
-              [ngClass]="joinUs === 'no' ? 'active' : 'not-active'" 
-              class="btn-style flex-text-align-center"
-              for="not-interested"
-              >no
-          </label>
+      <input class="radio-btn" type="radio" id="interested" (click)="radioSelect($event)">
+      <label [ngClass]="joinUs === 'yes' ? 'active' : 'not-active'" class="btn-style flex-text-align-center"
+        style="margin-right: 15px" for="interested">yes
+      </label>
+      <input class="radio-btn" type="radio" id="not-interested" (click)="radioSelect($event)">
+      <label [ngClass]="joinUs === 'no' ? 'active' : 'not-active'" class="btn-style flex-text-align-center"
+        for="not-interested">no
+      </label>
     </div>
     <!-- if yes, show guest count prompt-->
-    <div class="guest-count"
-      [ngClass]="{ 'hidden': joinUs !== 'yes' }">
+    <div class="guest-count" [ngClass]="{ 'hidden': joinUs !== 'yes' }">
       <p class="flex-align-items-center flex-justify-content-center flex-text-align-center">
-       <span class="info">Please provide the number of guests below:</span>
+        <span class="info">Please provide the number of guests below:</span>
       </p>
-        <input 
-         id="guests" 
-         name="guests" 
-         type="number" 
-         [(ngModel)]="guests" 
-         class="input-field"
-         placeholder="Number of guests"
-         required
-        />
+      <input id="guests" name="guests" type="number" [(ngModel)]="guests" class="input-field"
+        placeholder="Number of guests" required />
+      @if (inputError === true) {
+      <p class="error">
+        Enter number of guests that want to go!
+      </p>
+      }
     </div>
-  </div>  
+  </div>
   <div class="flex-align-items-center flex-justify-content-center flex-text-align-center btn-container">
     <button type="submit" class="button" (click)="joinUsSubmit()">next</button>
   </div>

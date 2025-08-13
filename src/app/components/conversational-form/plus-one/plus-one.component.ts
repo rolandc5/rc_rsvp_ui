@@ -19,6 +19,7 @@ export class PlusOneComponent {
   constructor() {
     effect(() => {
       this.rsvpLists = this.sheetService.rsvp;
+      this.plusOne = this.rsvpLists.group[0][6];
     })
   }
 

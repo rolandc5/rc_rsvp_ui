@@ -20,6 +20,7 @@ export class AllergiesComponent {
   constructor() {
     effect(() => {
       this.rsvpLists = this.sheetService.rsvp;
+      this.allergy = this.rsvpLists.group[0][5];
     })
   }
 
@@ -30,5 +31,4 @@ export class AllergiesComponent {
     this.sheetService._rsvp.set(this.rsvpLists);
     this.pageOutput.emit(5);
   }
-
 }
