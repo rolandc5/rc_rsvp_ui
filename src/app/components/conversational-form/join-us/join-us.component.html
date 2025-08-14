@@ -18,13 +18,15 @@
     <!-- if yes, show guest count prompt-->
     <div class="guest-count" [ngClass]="{ 'hidden': joinUs !== 'yes' }">
       <p class="flex-align-items-center flex-justify-content-center flex-text-align-center">
-        <span class="info">Please provide the number of guests below:</span>
+        <span class="info" style="color:#ab5429"></span>
+        <span class="info">How many guests will join? <br> This will give us an idea of the group size.</span>
       </p>
       <input id="guests" name="guests" type="number" [(ngModel)]="guests" class="input-field"
         placeholder="Number of guests" required />
+        <span class="info"><br>Please book your reservation with Diana via Email or WhatsApp. <br> <a class="info-link" href="https://rccanuto.com/home/things-to-do/#mcrich" target="_blank" style="color:#ab5429;">Details Here</a></span>
       @if (inputError === true) {
       <p class="error">
-        Enter number of guests that want to go!
+        Please enter the number of guests who will be joining us.
       </p>
       }
     </div>

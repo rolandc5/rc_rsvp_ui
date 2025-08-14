@@ -4,6 +4,17 @@
   font-size: $font-size--medium;
 }
 
+.info-link {
+  font-size: $font-size--medium;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 50px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .join-us-container {
   display: flex;
   flex-direction: column;
