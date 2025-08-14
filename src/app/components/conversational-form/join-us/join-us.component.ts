@@ -18,12 +18,15 @@ export class JoinUsComponent {
   email: string = '';
   guests: any;
   inputError: boolean = false;
+  error: string = '';
 
   constructor() {
     effect(() => {
       this.rsvpLists = this.sheetService.rsvp;
+      console.log(this.rsvpLists);
       this.joinUs = this.rsvpLists.group[0][10];
       this.guests = this.rsvpLists.group[0][11];
+      console.log(this.joinUs, this.guests);
     })
   }
 
@@ -41,12 +44,18 @@ export class JoinUsComponent {
       this.inputError = true;
       return;
     }
-    console.log(this.rsvpLists);
     this.rsvpLists.group.forEach((invitee: any) => {
       invitee[10] = this.joinUs;
-      invitee[10] = this.guests;
+      invitee[11] = this.guests;
     });
-    this.sheetService._rsvp.set(this.rsvpLists);
-    this.pageOutput.emit(9);
+    console.log(this.rsvpLists);
+    this.sheetService.postInviteInfo().subscribe({
+      error: (err) => {
+        this.error = err;
+      },
+      complete: () => {
+        this.pageOutput.emit(9);
+      }
+    })
   }
 }

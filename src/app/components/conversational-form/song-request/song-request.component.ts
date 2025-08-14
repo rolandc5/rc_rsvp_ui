@@ -29,14 +29,8 @@ export class SongRequestComponent {
       invitee[7] = this.songRequest;
       invitee[8] = 'submitted'
     });
-    this.sheetService.postInviteInfo().subscribe({
-      error: (err) => {
-        this.error = err;
-      },
-      complete: () => {
-        this.pageOutput.emit(7);
-      }
-    })
+    this.sheetService._rsvp.set(this.rsvpLists);
+    this.pageOutput.emit(7);
   }
 
 }
