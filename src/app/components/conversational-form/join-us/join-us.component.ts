@@ -16,7 +16,7 @@ export class JoinUsComponent {
   rsvpLists: Rsvp = {} as Rsvp;
   joinUs: string = '';
   email: string = '';
-  guests: any;
+  guests: number = 0;
   inputError: boolean = false;
   error: string = '';
 
@@ -40,15 +40,10 @@ export class JoinUsComponent {
   }
 
   joinUsSubmit() {
-    if (this.joinUs === 'yes' && !this.guests) {
-      this.inputError = true;
-      return;
-    }
     this.rsvpLists.group.forEach((invitee: any) => {
       invitee[10] = this.joinUs;
       invitee[11] = this.guests;
     });
-    console.log(this.rsvpLists);
     this.sheetService.postInviteInfo().subscribe({
       error: (err) => {
         this.error = err;
